@@ -19,7 +19,8 @@ namespace {
         AImageReader_ImageListener listener{nullptr, consume};
 
         reader() {
-            if (AImageReader_new(64, 48, AIMAGE_FORMAT_RGBA_8888, 4, &pReader) != AMEDIA_OK)
+            if (AImageReader_new(64, 48, AIMAGE_FORMAT_RGBA_8888, 4, &pReader) != AMEDIA_OK &&
+                AImageReader_new(64, 48, AIMAGE_FORMAT_YUV_420_888, 4, &pReader) != AMEDIA_OK)
                 throw std::runtime_error("AImageReader_new failed");
 
             AImageReader_setImageListener(pReader, &listener);
