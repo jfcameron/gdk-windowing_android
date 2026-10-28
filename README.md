@@ -20,9 +20,9 @@ ctest --preset android-x86_64
 ```
 The tests draw into an `AImageReader`'s surface, so they need no activity: a plain executable run through adb is enough.
 
-See `CMakePresets.json` for the ABIs, and `.github/workflows/ci.yml` to see how CI builds them and runs the tests on an emulator.
+See `CMakePresets.json` for the ABIs, and `.github/workflows/ci.yml` to see how CI builds them and runs the tests on emulators at API 24, the lowest supported, and API 34.
 
-To use it from another project, add it with `add_subdirectory` and link `gdk::windowing_android`. It brings gdk-windowing with it, unless the project already has it.
+To use it from another project, add it with `add_subdirectory` and link `gdk::windowing_android`. It brings gdk-windowing with it, unless the project already has it. Or install it (`cmake --install`, which installs gdk-windowing beside it) and use `find_package(gdk-windowing_android)`.
 
 ## Usage
 The activity owns the window, so the context is made from it, and makes one window at a time on it:
