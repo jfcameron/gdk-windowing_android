@@ -17,10 +17,20 @@ option(GDKWINDOWING_ANDROID_BUILD_TESTS "Build unit tests" ${PROJECT_IS_TOP_LEVE
 option(GDKWINDOWING_ANDROID_BUILD_DOCS "Build documentation" OFF)
 option(GDKWINDOWING_ANDROID_INSTALL "Generate install rules" ${PROJECT_IS_TOP_LEVEL})
 
-if (GDKWINDOWING_ANDROID_BUILD_DOCS AND NOT ANDROID)
-    add_subdirectory(docs)
+if (GDKWINDOWING_ANDROID_BUILD_DOCS)
+    jfc_generate_documentation_doxygen(
+        PROJECT_LOGO     ${CMAKE_CURRENT_LIST_DIR}/docs/icon.png
 
-    return()
+        README_PATH      README.md
+        OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/docs
+
+        INCLUDE_DIRECTORIES
+            include/
+    )
+
+    if (NOT ANDROID)
+        return()
+    endif()
 endif()
 
 if (NOT ANDROID)
@@ -85,8 +95,4 @@ endif()
 
 if (GDKWINDOWING_ANDROID_BUILD_TESTS)
     add_subdirectory(test)
-endif()
-
-if (GDKWINDOWING_ANDROID_BUILD_DOCS)
-    add_subdirectory(docs)
 endif()
