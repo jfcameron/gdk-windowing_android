@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        preset: [android-arm64, android-armv7, android-x86_64, android-x86]
+        preset: [android-arm64-ci, android-armv7-ci, android-x86_64-ci, android-x86-ci]
 
     steps:
       - uses: actions/checkout@v7
