@@ -77,6 +77,42 @@
       "cacheVariables": {
         "ANDROID_ABI": "x86"
       }
+    },
+    {
+      "name": "android-arm64-ci",
+      "displayName": "android-arm64 / CI",
+      "description": "Warnings are errors. CI only: a consumer's build should not fail on a warning we introduced, and ours should not survive one.",
+      "inherits": "android-arm64",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Werror"
+      }
+    },
+    {
+      "name": "android-armv7-ci",
+      "displayName": "android-armv7 / CI",
+      "description": "Warnings are errors. CI only: a consumer's build should not fail on a warning we introduced, and ours should not survive one.",
+      "inherits": "android-armv7",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Werror"
+      }
+    },
+    {
+      "name": "android-x86_64-ci",
+      "displayName": "android-x86_64 / CI",
+      "description": "Warnings are errors. CI only: a consumer's build should not fail on a warning we introduced, and ours should not survive one.",
+      "inherits": "android-x86_64",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Werror"
+      }
+    },
+    {
+      "name": "android-x86-ci",
+      "displayName": "android-x86 / CI",
+      "description": "Warnings are errors. CI only: a consumer's build should not fail on a warning we introduced, and ours should not survive one.",
+      "inherits": "android-x86",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra -Werror"
+      }
     }
   ],
   "buildPresets": [
@@ -99,6 +135,22 @@
     {
       "name": "android-x86",
       "configurePreset": "android-x86"
+    },
+    {
+      "name": "android-arm64-ci",
+      "configurePreset": "android-arm64-ci"
+    },
+    {
+      "name": "android-armv7-ci",
+      "configurePreset": "android-armv7-ci"
+    },
+    {
+      "name": "android-x86_64-ci",
+      "configurePreset": "android-x86_64-ci"
+    },
+    {
+      "name": "android-x86-ci",
+      "configurePreset": "android-x86-ci"
     }
   ],
   "testPresets": [
