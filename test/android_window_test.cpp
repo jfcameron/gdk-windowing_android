@@ -23,6 +23,16 @@ TEST_CASE("an android window's size is its surface's, whatever was asked", "[and
     REQUIRE(pWindow->window_size() == window_size_type{64, 48});
 }
 
+TEST_CASE("an android window has its activity's size to itself, whatever was asked", "[android]")
+{
+    const auto pContext = android_context::make(test::a_surface());
+    const auto pWindow = pContext->make_window("filling", {1920, 1080});
+
+    pWindow->set_fullscreen(false);
+
+    REQUIRE(pWindow->fullscreen());
+}
+
 TEST_CASE("an android context makes one window at a time", "[android][context]")
 {
     const auto pContext = android_context::make(test::a_surface());

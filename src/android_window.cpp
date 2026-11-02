@@ -142,6 +142,10 @@ void android_window::set_cursor(const cursor_image_type &) {}
 
 void android_window::set_cursor(const standard_cursor_graphic) {}
 
+void android_window::set_fullscreen(const bool) {}
+
+bool android_window::fullscreen() const { return true; }
+
 void android_window::close() { m_pImpl->shouldClose = true; }
 
 void android_window::keep_open() { m_pImpl->shouldClose = false; }
